@@ -1,4 +1,22 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem;
+}
+
+#greeteroutput {
+    font-size: 1.75rem;
+}
+
+#elementoutput {
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+#imagewrapper {
+    padding: 2rem;
+}
+
+img {
+    max-width: 100%;
 }
