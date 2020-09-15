@@ -14,15 +14,15 @@ The purpose of automation is to reduce human error, improve the easy of working 
 ### Packages and Tools
 
 Here is a list of our dependencies and what they do:
-    -  "browser-sync": This package allows us to have changes immediately reload the web browser.
-    -  "gulp": This is the main file gulp needs to run.
-    -  "gulp-clean": This package is used to delete files, which we do to remove "old" files in the publication folder.
-    -  "gulp-clean-css": This package minifies our CSS files by removing whitespaces.
-    -  "gulp-cli": This command line interface lets us run gulp directly from the node terminal.
-    -  "gulp-concat": This concatenates CSS/JavaScript for us, merging multiple files into one.
-    -  "gulp-htmlmin": This minifies HTML, creating a smaller, faster file for publication.
-    -  "gulp-imagemin": This does the same thing, except for images, rendering them smaller.
-    -  "gulp-uglify": This minifies our JavaScript files so that they load faster.
+-  "browser-sync": This package allows us to have changes immediately reload the web browser.
+-  "gulp": This is the main file gulp needs to run.
+-  "gulp-clean": This package is used to delete files, which we do to remove "old" files in the publication folder.
+-  "gulp-clean-css": This package minifies our CSS files by removing whitespaces.
+-  "gulp-cli": This command line interface lets us run gulp directly from the node terminal.
+-  "gulp-concat": This concatenates CSS/JavaScript for us, merging multiple files into one.
+-  "gulp-htmlmin": This minifies HTML, creating a smaller, faster file for publication.
+-  "gulp-imagemin": This does the same thing, except for images, rendering them smaller.
+-  "gulp-uglify": This minifies our JavaScript files so that they load faster.
 
 ### Running the Code
 
