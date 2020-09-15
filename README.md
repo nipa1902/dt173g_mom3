@@ -1,6 +1,10 @@
 # dt173g_mom2
 Moment 2 for course DT173G. Using GULP in NodeJS to create automated workflow.
 
+### Install
+
+Once project is cloned, navigate to root folder (dt173g_mom2) and run npm install. Then run gulp from terminal. This will create a pub folder and start a local live server.
+
 ### Purpose of Automation
 
 This project uses GULP to automate workflow. This means, in practice, that we seperate our website into two folders: a build (src) and a distribution (pub). By using GULP, we can set up a series of automated tasks to run. For example, whenever we make a change to a file inside our source folder, that file gets copied over in its changed state to the public folder automatically. This is done through a "watch" task; More on that later.
@@ -45,7 +49,7 @@ We have the following functions in our code:
 
 #### The Default Task
 
-The basic "gulp" task runs a default task, which in turn calls our functions. We use both series (sequential) and parallel (not sequential). The series allow us to first clean the public folder, THEN begin copying over CSS / JS / images / HTML with respective functions, and then finally watch for changes and load up Browser Sync. The actual piping of the files is done in parallel, after the completion of pub cleaning (deleting all files in pub folder).
+The basic "gulp" command runs a default task, which in turn calls our functions. We use both series (sequential) and parallel (not sequential). The series allow us to first clean the public folder, THEN begin copying over CSS / JS / images / HTML with respective functions, and then finally watch for changes and load up Browser Sync. The actual piping of the files is done in parallel, after the completion of pub cleaning (deleting all files in pub folder).
 
 What this means is that simply running "gulp" should delete any public files, re-populate them with minified and concatenated files, and then load a local web server where you can see the resulting output. Changing anything in the source files will automatically re-copy files to the public directory. Anytime the public directory files change, the web browser reloads. 
 
