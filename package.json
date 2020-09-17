@@ -1,14 +1,14 @@
 {
-  "name": "moment2",
+  "name": "moment3",
   "version": "1.0.0",
-  "description": "Moment 2 by nipa1902 for course DT173G",
+  "description": "Moment 3 by nipa1902 for course DT173G",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "nipa1902",
-    "moment2"
+    "moment3"
   ],
   "author": "Nils Paulsson (nipa1902)",
   "license": "MIT",
