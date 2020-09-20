@@ -1,0 +1,51 @@
+// Use me to place complete component stylings such as boxes, link styling, buttons, etc etc. 
+
+// No text decoration
+@mixin no-decoration {
+    text-decoration: none;
+}
+
+// HORIZONTAL FLEX LIST WITH NESTED LIST ITEMS
+@mixin horizontal-flex-list {
+
+    ul, ol {
+        display: flex;
+        flex-direction: row;
+    // Nested list items inside the ul
+        li {padding: $padding-1;}
+    }
+}
+
+// SAME THING BUT CENTER CONTENT
+@mixin horizontal-flex-list-center {
+    @include horizontal-flex-list;
+    ul, ol {
+        justify-content: $alignCenter;
+    }
+}
+
+
+// I am a half-width centered box, use me to print messages
+@mixin half-box {
+    text-align: $alignCenter;
+    max-width: $halfWidth;
+    margin: $marginCenter;
+
+    // Ugly, fix this
+    margin-bottom: $margin-1;
+    margin-top: $margin-1;
+}
+
+// I am warning box
+@mixin warning-box {
+    @include half-box;
+    border: 3px solid $colorWarning;
+    color: $colorWarning;
+}
+
+// I am happy green box
+@mixin success-box {
+    @include half-box;
+        border: 3px solid $colorPrimary;
+        color: $colorPrimary;
+}

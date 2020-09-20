@@ -1,0 +1,56 @@
+// I should contain variables for things like fonts, colours, stylings, etc. 
+
+// FONTS
+$fontStack: 'Lucida Sans', sans-serif;
+
+
+
+// FONT SIZES
+$p: 1.1rem;
+$h1: 1.75rem;
+$h2: 1.65rem;
+$h3: 1.55rem;
+$h4: 1.45rem;
+$h5: 1.35rem;
+$h6: 1.25rem;
+
+// TEXT STYLING
+$fontItalic: italic;
+$fontBold: bold;
+
+// PADDING
+$padding-1: 1rem;
+
+// WIDTH
+$fullWidth: 100%;
+$halfWidth: 50%;
+
+// MARGIN
+$marginCenter: 0 auto;
+$margin-1: 1rem;
+
+// ALIGN
+$alignCenter: center;
+
+// COLOURS
+$colorWarning: red;
+$colorWhite: #fff;
+$colorBlack: #000;
+
+$colorPrimary: #186875;
+$colorSecondary: #752518;
+$colorTertiary: #d144d8;
+
+$colorBright: lighten($colorPrimary, 50%);
+$colorDark: darken($colorPrimary, 20%);
+
+
+// MIXIN
+
+// Basic padding and line height that we can extend to all text
+%text-default {
+    max-width: 75ch;
+    line-height: 1.65rem;
+    padding: 1rem;
+    font-size: $p;
+}

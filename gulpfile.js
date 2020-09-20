@@ -9,6 +9,7 @@ const uglify = require('gulp-uglify');
 const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
 const cssmin = require('gulp-clean-css');
+const sass = require('gulp-sass');
 
 
 // Wipes everything in public directory
@@ -22,7 +23,7 @@ function cleanImages() {
         .pipe(delFile());
 }
 
-// Deletes CSS in pub
+// Deletes CSS in pub -- will remove any compiled SASS as well
 function cleanCSS() {
     return gulp.src('./pub/css/*.css') 
         .pipe(delFile());
@@ -48,7 +49,18 @@ function images() {
     .pipe(gulp.dest('./pub/img'));
 }
 
+
+function sassCompile() {
+    return gulp.src('./src/sass/*.scss')
+    .pipe(sass().on("error", sass.logError))
+    .pipe(concat('main.css'))
+    .pipe(cssmin({compatibility: 'ie8'}))
+    .pipe(gulp.dest('./pub/css'))
+    .pipe(browserSync.stream());
+}
+
 // Minifies and then concatenates all CSS
+/* We should not need you anymore since we have SASS
 function css() {
     return gulp.src('./src/css/*.css')
         .pipe(cssmin({compatibility: 'ie8'}))
@@ -56,6 +68,7 @@ function css() {
         .pipe(gulp.dest('./pub/css'))
         .pipe(browserSync.stream());
 }
+*/
 
 //  Minifies and then concatenates all JS
 function javascript() {
@@ -86,7 +99,7 @@ function watch() {
     // I watch for SRC changes, and update public files
     gulp.watch('src/js/*.js', series(cleanJS, javascript));
     gulp.watch('src/*.html', series(cleanHTML, html));
-    gulp.watch('src/css/*.css', series(cleanCSS, css));
+    gulp.watch('src/sass/*.scss', series(cleanCSS, sassCompile));
     gulp.watch('src/img/**.*', series(cleanImages, images));
 
     // I watch for public changes and reload browser (this will also run whenever the above code is invoked)
@@ -98,14 +111,13 @@ exports.cleanCSS = cleanCSS;
 exports.cleanJS = cleanJS;
 exports.cleanHTML = cleanHTML;
 exports.cleanImages = cleanImages;
-
 exports.cleanPub = cleanPub;
 
+exports.sassCompile = sassCompile;
 exports.images = images;
 exports.html = html;
 exports.javascript = javascript;
-exports.css = css;
 
 exports.watch = watch;
 
-exports.default = series(cleanPub, parallel(html, css, javascript, images), watch);
+exports.default = series(cleanPub, parallel(html, sassCompile, javascript, images), watch);

@@ -1,0 +1,68 @@
+// Specific layout for the index page, for control of elements etc 
+
+.container {
+    max-width: 1200px;
+    margin: $marginCenter;
+    font-family: $fontStack;
+
+    p {
+        @extend %text-default;
+    }
+}
+
+// Align children inside wrappe center
+#imagewrapper {
+    text-align: $alignCenter;
+    // Make sure images cannot exceed 100% width
+    figure, img {
+        max-width: $fullWidth;
+    }
+}
+
+// Our heading
+#heading {
+    background: $colorBright;
+    font-size: $h1;
+    padding: $padding-1;
+}
+
+.text-primary {color: $colorPrimary;}
+.text-secondary {color: $colorSecondary;}
+.text-tertiary {color: $colorTertiary;}
+.text-primarylight {color: $colorBright;}
+.text-primarydark {color: $colorDark;}
+
+.bg-primarylight {background: $colorBright;}
+.bg-primarydark {background: $colorDark;}
+
+// Nav will import the layout rules from horizontal flex
+nav {
+    background-color: $colorDark;
+    @include horizontal-flex-list-center; 
+
+    a {
+        @include no-decoration;
+        color: $colorWhite;
+
+        // Using parent selector to set hover style
+        &:hover {
+            opacity: 0.9;
+            color: $colorBright;
+        }
+    } 
+
+}
+
+// Example of using our warning box mixin to put border+red color on element
+#greeteroutput {
+    @include warning-box;
+}
+
+#elementoutput {
+    @include success-box;
+}
+
+footer {
+    background: $colorDark;
+    color: $colorBright;
+}
