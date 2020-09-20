@@ -11,9 +11,17 @@
     ul, ol {
         display: flex;
         flex-direction: row;
+
+        // For later projects we'll want a hamburger menu, for now just re-size the flex
+        @media #{$breakpoint-small} {
+                flex-direction: column;
+                text-align: $alignCenter;
+        }
+
     // Nested list items inside the ul
         li {padding: $padding-1;}
     }
+        // Full-width on smaller screens
 }
 
 // SAME THING BUT CENTER CONTENT
@@ -26,16 +34,33 @@
 
 
 // I am a half-width centered box, use me to print messages
-@mixin half-box {
+@mixin half-box($warning: false) {
     text-align: $alignCenter;
     max-width: $halfWidth;
     margin: $marginCenter;
 
-    // Ugly, fix this
-    margin-bottom: $margin-1;
-    margin-top: $margin-1;
+    @if $warning {
+    border: 3px solid $colorWarning;
+    color: $colorWarning;
+    } @else {
+        border: 3px solid $colorSuccess;
+        color: $colorSuccess;
+    }
+
+    // Full-width on smaller screens
+    @media #{$breakpoint-small} {
+        max-width: $fullWidth;
+    }
 }
 
+@mixin margin-both {
+    margin-top: $margin-1;
+    margin-bottom: $margin-1;
+}
+
+
+// Alternative code using mixins and include 
+/*
 // I am warning box
 @mixin warning-box {
     @include half-box;
@@ -46,6 +71,49 @@
 // I am happy green box
 @mixin success-box {
     @include half-box;
-        border: 3px solid $colorPrimary;
-        color: $colorPrimary;
+        border: 3px solid $colorSuccess;
+        color: $colorSuccess;
+}
+*/
+
+
+// Playing with boxes and variables
+@mixin boxes($circle: false) {
+    height: 10rem;
+    width: 10rem;
+
+    @if $circle {
+        border-radius: 50%;
+    } @else {
+        border-radius: 1rem;
+    }
+}
+
+@mixin error($error: false) {
+    @if $error {
+        background-color: $colorWarning;
+        border: 3px solid black;
+    } @else {
+    background-color: $colorSuccess;
+    }
+}
+
+#box1 {
+    @include boxes;
+    @include error;
+}
+
+#box2 {
+    @include boxes($circle: true);
+    @include error;
+}
+
+#box3 {
+    @include boxes;
+    @include error($error: true);
+}
+
+#box4 {
+    @include boxes($circle: true);
+    @include error($error: true);
 }

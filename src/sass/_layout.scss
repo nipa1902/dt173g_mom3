@@ -26,20 +26,10 @@
     padding: $padding-1;
 }
 
-.text-primary {color: $colorPrimary;}
-.text-secondary {color: $colorSecondary;}
-.text-tertiary {color: $colorTertiary;}
-.text-primarylight {color: $colorBright;}
-.text-primarydark {color: $colorDark;}
-
-.bg-primarylight {background: $colorBright;}
-.bg-primarydark {background: $colorDark;}
-
 // Nav will import the layout rules from horizontal flex
 nav {
     background-color: $colorDark;
     @include horizontal-flex-list-center; 
-
     a {
         @include no-decoration;
         color: $colorWhite;
@@ -53,16 +43,49 @@ nav {
 
 }
 
-// Example of using our warning box mixin to put border+red color on element
-#greeteroutput {
-    @include warning-box;
+section#boxes {
+    display: grid;
+    max-width: 100%;
+    grid-gap: 2.5rem;
+    grid-template: "1fr 1fr 1fr 1fr";
+    justify-content: $alignCenter;
 }
 
-#elementoutput {
-    @include success-box;
+@media #{$breakpoint-medium} {
+    section#boxes {
+        grid-template: "1fr 1fr";
+    }
 }
 
+@media #{$breakpoint-small} {
+    section#boxes {
+        grid-template: "1fr";
+    }
+}
+
+
+// Warning boxes
+#greeteroutput, .warning-box {
+    @include half-box($warning: true);
+}
+
+// Default value is false
+#elementoutput {@include half-box;}
+
+// Margin-both gives top/bottom margin to elements
+section, figure, .warning-box {
+    @include margin-both;
+}
+
+// For later projects make footer a component instead
 footer {
     background: $colorDark;
     color: $colorBright;
+    text-align: $alignCenter;
+    margin-top: $margin-1;
+
+    // Hacking this to ignore text-default extension for now. Consider changes.
+    p.fullWidth {
+    max-width: $fullWidth !important;
+    }
 }

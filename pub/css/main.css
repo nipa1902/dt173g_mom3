@@ -1,0 +1,199 @@
+/* SASS RESET: 
+
+    Credit: Fraser Boag on GitHub
+    URL: https://github.com/fraserboag/sass-reset
+
+*/
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none; }
+
+footer, header, nav, section, main {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0; }
+
+.text-primary {
+  color: #186875; }
+
+.text-secondary {
+  color: #752518; }
+
+.text-tertiary {
+  color: #d144d8; }
+
+.text-primarylight {
+  color: #a0e1ec; }
+
+.text-primarydark {
+  color: #071d20; }
+
+.text-warning {
+  color: red; }
+
+.text-success {
+  color: #177717; }
+
+.bg-primarylight {
+  background: #a0e1ec; }
+
+.bg-primarydark {
+  background: #071d20; }
+
+.container p {
+  max-width: 75ch;
+  line-height: 1.65rem;
+  padding: 1rem;
+  font-size: 1.1rem; }
+
+/*
+// I am warning box
+@mixin warning-box {
+    @include half-box;
+    border: 3px solid $colorWarning;
+    color: $colorWarning;
+}
+
+// I am happy green box
+@mixin success-box {
+    @include half-box;
+        border: 3px solid $colorSuccess;
+        color: $colorSuccess;
+}
+*/
+#box1 {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 1rem;
+  background-color: #177717; }
+
+#box2 {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  background-color: #177717; }
+
+#box3 {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 1rem;
+  background-color: red;
+  border: 3px solid black; }
+
+#box4 {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  background-color: red;
+  border: 3px solid black; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Lucida Sans", sans-serif; }
+
+#imagewrapper {
+  text-align: center; }
+  #imagewrapper figure, #imagewrapper img {
+    max-width: 100%; }
+
+#heading {
+  background: #a0e1ec;
+  font-size: 1.75rem;
+  padding: 1rem; }
+
+nav {
+  background-color: #071d20; }
+  nav ul, nav ol {
+    display: flex;
+    flex-direction: row; }
+    @media only screen and (max-width: 25rem) {
+      nav ul, nav ol {
+        flex-direction: column;
+        text-align: center; } }
+    nav ul li, nav ol li {
+      padding: 1rem; }
+  nav ul, nav ol {
+    justify-content: center; }
+  nav a {
+    text-decoration: none;
+    color: #fff; }
+    nav a:hover {
+      opacity: 0.9;
+      color: #a0e1ec; }
+
+section#boxes {
+  display: grid;
+  max-width: 100%;
+  grid-gap: 2.5rem;
+  grid-template: "1fr 1fr 1fr 1fr";
+  justify-content: center; }
+
+@media only screen and (max-width: 50rem) {
+  section#boxes {
+    grid-template: "1fr 1fr"; } }
+
+@media only screen and (max-width: 25rem) {
+  section#boxes {
+    grid-template: "1fr"; } }
+
+#greeteroutput, .warning-box {
+  text-align: center;
+  max-width: 50%;
+  margin: 0 auto;
+  border: 3px solid red;
+  color: red; }
+  @media only screen and (max-width: 25rem) {
+    #greeteroutput, .warning-box {
+      max-width: 100%; } }
+
+#elementoutput {
+  text-align: center;
+  max-width: 50%;
+  margin: 0 auto;
+  border: 3px solid #177717;
+  color: #177717; }
+  @media only screen and (max-width: 25rem) {
+    #elementoutput {
+      max-width: 100%; } }
+
+section, figure, .warning-box {
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
+
+footer {
+  background: #071d20;
+  color: #a0e1ec;
+  text-align: center;
+  margin-top: 1rem; }
+  footer p.fullWidth {
+    max-width: 100% !important; }
