@@ -49,7 +49,7 @@ function images() {
     .pipe(gulp.dest('./pub/img'));
 }
 
-
+// Compiles all the SCSS, concats to a css file, minifies it, and sends it to public folder
 function sassCompile() {
     return gulp.src('./src/sass/*.scss')
     .pipe(sass().on("error", sass.logError))
@@ -58,17 +58,6 @@ function sassCompile() {
     .pipe(gulp.dest('./pub/css'))
     .pipe(browserSync.stream());
 }
-
-// Minifies and then concatenates all CSS
-/* We should not need you anymore since we have SASS
-function css() {
-    return gulp.src('./src/css/*.css')
-        .pipe(cssmin({compatibility: 'ie8'}))
-        .pipe(concat('main.css'))
-        .pipe(gulp.dest('./pub/css'))
-        .pipe(browserSync.stream());
-}
-*/
 
 //  Minifies and then concatenates all JS
 function javascript() {

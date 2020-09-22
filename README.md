@@ -11,4 +11,4 @@ Once project is cloned, navigate to root folder (dt173g_mom3) and run npm instal
 
 In this project, we use partials, variables, nesting, mixins, extend-selectors, if-else statements and colour functions to create more re-usable, more legible and smarter CSS. 
 
-Our GULP task has been updated to process, concatenate and deposit our SASS into plain CSS inside the pub/css folder. Compared to [Our previous project](https://github.com/nipa1902/dt173g_mom2 "DT173G mom2"), the only difference in the gulpfile is that we use a SASS compile function instead of CSS function, with the added extra step of handling SASS compiles through node-sass.
+Our GULP task has been updated to process, concatenate and deposit our SASS into plain CSS inside the pub/css folder. Compared to [our previous project](https://github.com/nipa1902/dt173g_mom2 "DT173G mom2"), the only difference in the gulpfile is that we use a SASS compile function instead of CSS function, with the added extra step of handling SASS compiles through node-sass.
