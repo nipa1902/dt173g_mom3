@@ -40,10 +40,10 @@
     margin: $marginCenter;
 
     @if $warning {
-    border: 3px solid $colorWarning;
+    border: 3px solid darken($colorWarning, 10%);
     color: $colorWarning;
     } @else {
-        border: 3px solid $colorSuccess;
+        border: 3px solid darken($colorSuccess, 10%);
         color: $colorSuccess;
     }
 
@@ -101,19 +101,33 @@
 #box1 {
     @include boxes;
     @include error;
+
+    // Create a complementary colour
+    border: 3px solid complement($colorSuccess);
 }
 
 #box2 {
     @include boxes($circle: true);
     @include error;
+
+    // Dropping saturation
+    background-color: saturate($colorSuccess, 25%);
+    // Rotate hue of original colour for border
+    border: 10px solid adjust-hue($colorSuccess, 90);
 }
 
 #box3 {
     @include boxes;
     @include error($error: true);
+    
+    // Mixing two colours
+    background-color: mix($colorSuccess, $colorWarning, 50%);
 }
 
 #box4 {
     @include boxes($circle: true);
     @include error($error: true);
+
+    // Playing with transparency
+    background-color: fade-out($colorWarning, 0.66);
 }
