@@ -11,6 +11,9 @@ const imagemin = require('gulp-imagemin');
 const cssmin = require('gulp-clean-css');
 const sass = require('gulp-sass');
 
+const babel = require('gulp-babel');
+const sourcemaps = require('gulp-sourcemaps');
+
 
 // Wipes everything in public directory
 function cleanPub() {
@@ -59,11 +62,17 @@ function sassCompile() {
     .pipe(browserSync.stream());
 }
 
-//  Minifies and then concatenates all JS
+// Minifies and then concatenates all JS
+// Now with babel support, preset env transpiles to ECMA 2015
 function javascript() {
     return gulp.src('./src/js/*.js')
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/preset-env']
+        }))
         .pipe(concat('main.js'))
         .pipe(uglify())
+        .pipe(sourcemaps.write("."))
         .pipe(gulp.dest('./pub/js'))
         .pipe(browserSync.stream());
 }
